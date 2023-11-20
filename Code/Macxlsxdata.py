@@ -50,15 +50,24 @@ import numpy as np
     return crimeDataDF """
 
  
-# takes in a directory per machine (self-provided)
-# defines our empty dataframe to populate with
-# loops through the file path, and once we have an xlsx file, we take it and merge with our df
-# returns our crime df
-def fileReader(directory):
+'''
+takes in a directory per machine (self-provided)
+defines our empty dataframe to populate with
+loops through the file path, and once we have an xlsx file, we take it and merge with our df
+returns our crime df 
+'''
+def fileReader(directory, isMAC = True):
+    #Creating an empty dataframe
     crimeDataDF = pd.DataFrame(columns = ['CATEGORY','CALL GROUPS','final_case_type','CASE DESC', 'occ_date', 
                                     'x-coordinate', 'y_coordniate', 'census_tract'])
+    
+    # if we are working on a pc, chage the addtional file path / to \
+    addDir = 'CIS635/'
+    if isMAC == False:
+        addDir = 'CIS635\\'
 
-    for dirpath, dirnames, filenames in os.walk(directory):
+    # for each file, if it is an xlsx file, read and merge it
+    for dirpath, dirnames, filenames in os.walk(directory + '/CIS635'):
         for filename in filenames:
             if filename.endswith('.xlsx'):
                 temp_file = pd.read_excel(dirpath + '/' + filename)
@@ -68,7 +77,10 @@ def fileReader(directory):
     crimeDataDF.drop(columns=crimeDataDF.columns[0:2], inplace=True)
     return crimeDataDF
 
-# used to test a small version of our data so that we can ensure syntax/low level bugs are fixed before compliling actual dataset
+'''
+used to test a small version of our data so that we can ensure 
+syntax/low level bugs are fixed before compliling actual dataset
+'''
 def smallTesterFile(file_name = ""):
     fullYear2012 = pd.read_excel(file_name + r"/CIS635/Full Year/2012fullyear.xlsx")
     fullYear2013 = pd.read_excel(file_name + r"/CIS635/Full Year/2013fullyear.xlsx")

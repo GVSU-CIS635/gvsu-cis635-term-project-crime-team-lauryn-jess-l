@@ -4,8 +4,8 @@ import Macxlsxdata as mac
 import pandas as pd
 import geoData 
 
-file_name = "/Users/lauryndavis/"
-#file_name = "/Users/Ldettling/Documents"
+#file_name = "/Users/lauryndavis/"
+file_name = "/Users/Ldettling/Documents"
 data_directory = "/Users/Ldettling/Documents/CIS635"
 geo_directory = "/Users/Ldettling/Documents/CIS635/Geo_Data"
 
@@ -20,9 +20,9 @@ def mainRun(runType = '', readGeo = False):
 
     if readGeo:
         crimeData_geo = geoData.shpFile_brute_MAC(file_name)
-        #crimeData_geo = geoData.shpFileReader(geo_directory)
+        #crimeData_geo = geoData.shpFileReader(file_name)
         print(crimeData_geo)
 
-mainRun('Main', readGeo=False)
+mainRun('  ', readGeo=True)
 
 #testing a new commit here!
