@@ -80,11 +80,18 @@ def fileReader(directory, isMAC = True):
 '''
 used to test a small version of our data so that we can ensure 
 syntax/low level bugs are fixed before compliling actual dataset
+handels mac or pc
 '''
-def smallTesterFile(file_name = ""):
-    fullYear2012 = pd.read_excel(file_name + r"/CIS635/Full Year/2012fullyear.xlsx")
-    fullYear2013 = pd.read_excel(file_name + r"/CIS635/Full Year/2013fullyear.xlsx")
-    testset = pd.merge(fullYear2012, fullYear2013, how = 'outer')
+def smallTesterFile(file_name = "", isMAC = True):
+    if isMAC:
+        fullYear2012 = pd.read_excel(file_name + r"CIS635/Full Year/2012fullyear.xlsx")
+        fullYear2013 = pd.read_excel(file_name + r"CIS635/Full Year/2013fullyear.xlsx")
+        testset = pd.merge(fullYear2012, fullYear2013, how = 'outer')
+    else:
+        fullYear2012 = pd.read_excel(file_name + r"CIS635\Full Year\2012fullyear.xlsx")
+        fullYear2013 = pd.read_excel(file_name + r"CIS635\Full Year\2013fullyear.xlsx")
+        testset = pd.merge(fullYear2012, fullYear2013, how = 'outer')
+
     return testset
 
 # prints the nan's per column nicely
