@@ -102,7 +102,6 @@ def shpFile_brute_MAC(fileName, isMAC = True):
     return crimeData_geom
     
 
-
 def shpFile_brute_PC(directory = ""):
     #2012
     SHP_MAR01_DEC31_2012 = gpd.read_file(r'CIS635\Geo_Data\2012\NIJ2012_JAN01_DEC31.shp')
@@ -148,4 +147,8 @@ def shpFile_brute_PC(directory = ""):
 
 
 
-# end of file
+def plotGeo(geoDF):
+    crimeGeoDf = gpd.GeoDataFrame(geoDF)
+    crimeGeoDf.plot(figsize=(10,6))
+    plt.show()
+

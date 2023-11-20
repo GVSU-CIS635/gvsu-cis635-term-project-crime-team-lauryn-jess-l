@@ -3,11 +3,7 @@ import Macxlsxdata as mac
 import pandas as pd
 import geoData 
 
-#file_name = "/Users/lauryndavis/"
-file_name = "/Users/Ldettling/Documents/"
-
-
-def mainRun(runType = '', readGeo = False, isMAC = True):
+def mainRun(runType = '', file_name = '', readGeo = False, isMAC = True):
     if runType == 'Test':
         testdf = mac.smallTesterFile(file_name, isMAC)
         print(testdf)
@@ -20,14 +16,19 @@ def mainRun(runType = '', readGeo = False, isMAC = True):
         crimeData_geo = geoData.shpFile_brute_MAC(file_name, isMAC)
         #crimeData_geo = geoData.shpFileReader(file_name)
         print(crimeData_geo)
+        geoData.plotGeo(crimeData_geo)
 
 
 '''
-runs a main function, has 3 params
-string for the type of run: no run, Test, or Main
+runs a main function, has 4 params
+runTyp - no run (any string besides test and Main), Test, or Main
+file_name - describes the file path. 
 readGeo - whether you would like to read in geospatial data
 isMAC - True if you are using a MAC, false is you are using pc. for file reading, defaults to True
 '''
-mainRun('Test', readGeo=True, isMAC=True)
+#file_name = "/Users/lauryndavis/"
+file_name = "/Users/Ldettling/Documents/"
 
-#testing a new commit here!
+print("STARTING")
+mainRun('  ', file_name, readGeo=True, isMAC=True)
+print("DONE")
