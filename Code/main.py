@@ -14,9 +14,10 @@ def mainRun(runType = '', file_name = '', readGeo = False, isMAC = True):
 
     if readGeo:
         crimeData_geo = geoData.shpFile_brute_MAC(file_name, isMAC)
+        crimeData_geo = geoData.cleaningGEO(crimeData_geo)
         #crimeData_geo = geoData.shpFileReader(file_name)
         print(crimeData_geo)
-        geoData.plotGeo(crimeData_geo)
+        #geoData.plotGeo(crimeData_geo)
 
 
 '''
@@ -30,5 +31,5 @@ isMAC - True if you are using a MAC, false is you are using pc. for file reading
 file_name = "/Users/Ldettling/Documents/"
 
 print("STARTING")
-mainRun('  ', file_name, readGeo=True, isMAC=True)
+mainRun('no run', file_name, readGeo=True, isMAC=True)
 print("DONE")
