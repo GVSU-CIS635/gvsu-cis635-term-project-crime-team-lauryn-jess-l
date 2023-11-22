@@ -1,0 +1,40 @@
+```{r} 
+library(tidyverse)
+library(sf)
+library(rgdal)
+library(leaflet)
+
+janjuly2016 <- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2016_JAN01_JUL31.shp")
+aug2016<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2016_AUG01_AUG31.shp")
+sept2016<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2016_SEP01_SEP30.shp")
+oct2016<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2016_OCT01_OCT31.shp")
+nov2016<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2016_NOV01_NOV30.shp")
+dec2016<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2016_DEC01_DEC31.shp")
+ 
+
+jan2017<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2017_JAN01_JAN31.shp")
+feb1to142017<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2017_FEB01_FEB14.shp")
+feb15to212017<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2017_FEB15_FEB21.shp")
+feb22to26 <- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2017_FEB22_FEB26.shp")
+feb27<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2017_FEB27.shp")
+feb28<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2017_FEB28.shp")
+marchmay2017<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2017_MAR01_MAY31.shp")
+ 
+
+#Full years: 2012 only has data from march - dec. 
+full_2012<-  read_sf("~/Class_Git/Geo_Data/NIJ2012_MAR01_DEC31.shp")
+full_2013<- read_sf("~/Class_Git/Geo_Data/NIJ2013_JAN01_DEC31.shp")
+full_2014<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2014_JAN01_DEC31.shp")
+full_2015<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2015_JAN01_DEC31.shp")
+full2016 <- rbind(janjuly2016,aug2016,sept2016,oct2016,nov2016,dec2016)
+full2017<- rbind(jan2017,feb1to142017,feb15to212017, feb22to26, feb27, feb28, marchmay2017)
+
+all_data <- full2017<- rbind(full_2012, full_2013, full_2014, full_2015, full2016, full2017)
+
+leaflet(all_data) %>% addTiles() %>%
+  addCircleMarkers(lng = ~x_coordina, lat = ~y_coordina, 
+             popup = ~CATEGORY)
+
+
+
+```
