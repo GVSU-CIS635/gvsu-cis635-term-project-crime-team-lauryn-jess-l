@@ -145,6 +145,13 @@ def shpFile_brute_PC(directory = ""):
 
     LIST_SHP_FILES = ['SHP_MAR01_DEC31_2012','SHP_JAN01_DEC31_2013','SHP_JAN01_DEC31_2014','SHP_JAN01_DEC31_2015','SHP_JAN01_JUL31_2016','SHP_AUG01_AUG31_2016','SHP_SEP01_SEP30_2016','SHP_OCT01_OCT31_2016','SHP_NOV01_NOV30_2016','SHP_DEC01_DEC31_2016','SHP_JAN01_JAN31_2017','SHP_FEB01_FEB14_2017','SHP_FEB15_FEB21_2017','SHP_FEB22_FEB26_2017','SHP_FEB27_2017','SHP_FEB28_2017','SHP_MAR01_MAY31_2017']
 
+def cleaningGEO(geoDF):
+    crimeGeoDf = gpd.GeoDataFrame(geoDF)
+    #cleaningDF = pd.DatFrame(crimeGeoDf)
+    print("starting clean")
+    #crimeGeoDf = crimeGeoDf.dropna(inplace=True)
+    print("end of cleaning")
+    return crimeGeoDf
 
 
 def plotGeo(geoDF):
