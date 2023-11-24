@@ -22,9 +22,10 @@ marchmay2017<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2017_MAR01_MAY3
  
 
 #Full years: 2012 only has data from march - dec. 
-full_2012<-  read_sf("~/Class_Git/Geo_Data/NIJ2012_MAR01_DEC31.shp")
+full_2012<-  read_sf("~/Class_Git/Geo_Data/2012/NIJ2012_MAR01_DEC31.shp")
+
 full_2013<- read_sf("~/Class_Git/Geo_Data/NIJ2013_JAN01_DEC31.shp")
-full_2013
+
 
 full_2014<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2014_JAN01_DEC31.shp")
 full_2015<- read_sf("~/Class_Git/CopyOfGeo_Data/Geospatial/NIJ2015_JAN01_DEC31.shp")
