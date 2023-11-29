@@ -1,0 +1,5 @@
+"0","#We cannot merge all years together until dbfs have been uploaded. "
+"0","all_data <- full2017<- rbind(full_2012, part2017Test)"
+"2","Error in rbind.data.frame(...) : 
+  numbers of columns of arguments do not match
+"
