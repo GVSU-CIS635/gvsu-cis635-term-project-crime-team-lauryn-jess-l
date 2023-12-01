@@ -6,6 +6,7 @@ install.packages("rgdal")
 install.packages("leaflet")
 install.packages("ggmap")
 install.packages("maps")
+install.packages("gitignore")
 ```
 
 ```{r}
