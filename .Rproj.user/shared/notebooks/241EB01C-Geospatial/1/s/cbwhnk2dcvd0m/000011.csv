@@ -1,5 +1,0 @@
-"0","library(tidyverse)"
-"0","library(sf)"
-"2","Error: package or namespace load failed for ‘sf’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
- there is no package called ‘units’
-"
