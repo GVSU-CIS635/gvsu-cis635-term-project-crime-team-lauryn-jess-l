@@ -1,3 +1,71 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:772a51d4e93b9cf5d920778dc337390f459505f17aec7c8c9cfdf19ed6b18236
-size 717
+# History files
+.Rhistory
+.Rapp.history
+# Session Data files
+.RData
+# User-specific files
+.Ruserdata
+# Example code in package build process
+*-Ex.R
+# Output files from R CMD build
+/*.tar.gz
+# Output files from R CMD check
+/*.Rcheck/
+# RStudio files
+.Rproj.user/
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+# R Environment Variables
+.Renviron
+# pkgdown site
+docs/
+# translation temp files
+po/*~
+### R.Bookdown Stack ###
+# R package: bookdown caching files
+/*_files/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyc
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
