@@ -63,7 +63,7 @@ finalfull2014<- st_transform(full_2014, crs = 4326)
 finalfull2015<- st_transform(full_2015, crs = 4326)
 finalfull2016<- st_transform(full2016, crs = 4326)
 finalfull2017<- st_transform(full2017, crs = 4326)
-
+ 
 ui<- fluidPage(
   navbarPage(
     theme = shinytheme("superhero"),
