@@ -216,7 +216,7 @@ server<- function(input, output, session) {
   })
 
   observeEvent(input$revert, {
-    
+     
     if(is.null(input$revert))
       return()
     leafletProxy('map') %>% 
