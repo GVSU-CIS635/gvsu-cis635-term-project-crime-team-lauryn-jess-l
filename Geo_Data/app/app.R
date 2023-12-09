@@ -104,6 +104,7 @@ ui<- fluidPage(
     "Portland Crime Analysis",
     tabPanel("Interactive Map",
              fluidRow(width = 2, 
+                      helpText("Choose a Year to Display", style = "font-size:15px;"),
                       actionButton("2012", "2012"),
                       actionButton("2013", "2013"),
                       actionButton("2014", "2014"),
@@ -140,12 +141,6 @@ server<- function(input, output, session) {
   v <- reactiveValues(data = output)
   observeEvent(input$"2012", {
     v$data <- leafletProxy('map')%>%
-      addPolygons(data = i_to_p_2012,
-                  popup = ~ str_extract(NAME, "^([^,]*)"),
-                  stroke = FALSE,
-                  smoothFactor = 0,
-                  fillOpacity = 0.4,
-                  color = ~ pal_2012(estimate))%>%
       addGlPoints(data = finalfull2012[finalfull2012$CALL_GROUP == 'DISORDER',], group = "Disorder",  fillColor = 'lightblue',fillOpacity = 1, radius = 6, popup = "Disorder")%>%
       addGlPoints(data = finalfull2012[finalfull2012$CALL_GROUP == 'NON CRIMINAL/ADMIN',],  fillColor = 'salmon',fillOpacity = 1, radius = 6, popup = 'Non Criminal/Admin', group = 'Non Criminal/Admin')%>%
       addGlPoints(data = finalfull2012[finalfull2012$CALL_GROUP == 'TRAFFIC',], fillColor = 'lightpink', popup = 'Traffic', group = 'Traffic', fillOpacity = 5, radius = 6)%>%
@@ -156,6 +151,12 @@ server<- function(input, output, session) {
               lat = 45.523064, 
               zoom = 11)%>%
       setMaxBounds(-122.75, 45.45, -122.5, 45.6)%>%
+      addPolygons(data = i_to_p_2012,
+                  popup = ~ str_extract(NAME, "^([^,]*)"),
+                  stroke = FALSE,
+                  smoothFactor = 0,
+                  fillOpacity = 0.3,
+                  color = ~ pal_2012(estimate))%>%
       addLegend(data = i_to_p_2012,
                 "bottomright", 
                 pal = pal_2012, 
@@ -175,12 +176,6 @@ server<- function(input, output, session) {
   
   observeEvent(input$"2013", {
     v$data <- leafletProxy('map')%>%
-      addPolygons(data = i_to_p_2013,
-                  popup = ~ str_extract(NAME, "^([^,]*)"),
-                  stroke = FALSE,
-                  smoothFactor = 0,
-                  fillOpacity = 0.4,
-                  color = ~ pal_2013(estimate))%>%
       addGlPoints(data = finalfull2013[finalfull2013$CALL_GROUP == 'DISORDER',], group = "Disorder",  fillColor = 'lightblue',fillOpacity = 1, radius = 6, popup = "Disorder")%>%
       addGlPoints(data = finalfull2013[finalfull2013$CALL_GROUP == 'NON CRIMINAL/ADMIN',],  fillColor = 'salmon',fillOpacity = 1, radius = 6, popup = 'Non Criminal/Admin', group = 'Non Criminal/Admin')%>%
       addGlPoints(data = finalfull2013[finalfull2013$CALL_GROUP == 'TRAFFIC',], fillColor = 'lightpink', popup = 'Traffic', group = 'Traffic', fillOpacity = 5, radius = 6)%>%
@@ -197,16 +192,16 @@ server<- function(input, output, session) {
                 title = "Income to Poverty Ratio",
                 labFormat = labelFormat(prefix = "$"),
                 opacity = 1)%>%
-      setMaxBounds(-122.75, 45.45, -122.5, 45.6)})
-  
-  observeEvent(input$"2014", {
-    v$data <- leafletProxy('map')%>%
-      addPolygons(data = i_to_p_2014,
+      addPolygons(data = i_to_p_2013,
                   popup = ~ str_extract(NAME, "^([^,]*)"),
                   stroke = FALSE,
                   smoothFactor = 0,
                   fillOpacity = 0.4,
-                  color = ~ pal_2014(estimate))%>%
+                  color = ~ pal_2013(estimate))%>%
+      setMaxBounds(-122.75, 45.45, -122.5, 45.6)})
+  
+  observeEvent(input$"2014", {
+    v$data <- leafletProxy('map')%>%
       addGlPoints(data = finalfull2014[finalfull2014$CALL_GROUP == 'DISORDER',], group = "Disorder",  fillColor = 'lightblue',fillOpacity = 1, radius = 6, popup = "Disorder")%>%
       addGlPoints(data = finalfull2014[finalfull2014$CALL_GROUP == 'NON CRIMINAL/ADMIN',],  fillColor = 'salmon',fillOpacity = 1, radius = 6, popup = 'Non Criminal/Admin', group = 'Non Criminal/Admin')%>%
       addGlPoints(data = finalfull2014[finalfull2014$CALL_GROUP == 'TRAFFIC',], fillColor = 'lightpink', popup = 'Traffic', group = 'Traffic', fillOpacity = 5, radius = 6)%>%
@@ -224,16 +219,16 @@ server<- function(input, output, session) {
                 title = "Income to Poverty Ratio",
                 labFormat = labelFormat(prefix = "$"),
                 opacity = 1)%>%
-      setMaxBounds(-122.75, 45.45, -122.5, 45.6)})
-  
-  observeEvent(input$"2015", {
-    v$data <- leafletProxy('map')%>%
-      addPolygons(data = i_to_p_2015,
+      addPolygons(data = i_to_p_2014,
                   popup = ~ str_extract(NAME, "^([^,]*)"),
                   stroke = FALSE,
                   smoothFactor = 0,
                   fillOpacity = 0.4,
-                  color = ~ pal_2015(estimate))%>%
+                  color = ~ pal_2014(estimate))%>%
+      setMaxBounds(-122.75, 45.45, -122.5, 45.6)})
+  
+  observeEvent(input$"2015", {
+    v$data <- leafletProxy('map')%>%
       addGlPoints(data = finalfull2015[finalfull2015$CALL_GROUP == 'DISORDER',], group = "Disorder",  fillColor = 'lightblue',fillOpacity = 1, radius = 6, popup = "Disorder")%>%
       addGlPoints(data = finalfull2015[finalfull2015$CALL_GROUP == 'NON CRIMINAL/ADMIN',],  fillColor = 'salmon',fillOpacity = 1, radius = 6, popup = 'Non Criminal/Admin', group = 'Non Criminal/Admin')%>%
       addGlPoints(data = finalfull2015[finalfull2015$CALL_GROUP == 'TRAFFIC',], fillColor = 'lightpink', popup = 'Traffic', group = 'Traffic', fillOpacity = 5, radius = 6)%>%
@@ -251,16 +246,16 @@ server<- function(input, output, session) {
                 title = "Income to Poverty Ratio",
                 labFormat = labelFormat(prefix = "$"),
                 opacity = 1)%>%
-      setMaxBounds(-122.75, 45.45, -122.5, 45.6)})
-  
-  observeEvent(input$"2016", {
-    v$data <- leafletProxy('map')%>%
-      addPolygons(data = i_to_p_2016,
+      addPolygons(data = i_to_p_2015,
                   popup = ~ str_extract(NAME, "^([^,]*)"),
                   stroke = FALSE,
                   smoothFactor = 0,
                   fillOpacity = 0.4,
-                  color = ~ pal_2016(estimate))%>%
+                  color = ~ pal_2015(estimate))%>%
+      setMaxBounds(-122.75, 45.45, -122.5, 45.6)})
+  
+  observeEvent(input$"2016", {
+    v$data <- leafletProxy('map')%>%
       addGlPoints(data = finalfull2016[finalfull2016$CALL_GROUP == 'DISORDER',], group = "Disorder",  fillColor = 'lightblue',fillOpacity = 1, radius = 6, popup = "Disorder")%>%
       addGlPoints(data = finalfull2016[finalfull2016$CALL_GROUP == 'NON CRIMINAL/ADMIN',],  fillColor = 'salmon',fillOpacity = 1, radius = 6, popup = 'Non Criminal/Admin', group = 'Non Criminal/Admin')%>%
       addGlPoints(data = finalfull2016[finalfull2016$CALL_GROUP == 'TRAFFIC',], fillColor = 'lightpink', popup = 'Traffic', group = 'Traffic', fillOpacity = 5, radius = 6)%>%
@@ -278,16 +273,16 @@ server<- function(input, output, session) {
                 title = "Income to Poverty Ratio",
                 labFormat = labelFormat(prefix = "$"),
                 opacity = 1)%>%
-      setMaxBounds(-122.75, 45.45, -122.5, 45.6)})
-  
-  observeEvent(input$"2017", {
-    v$data <- leafletProxy('map')%>%
-      addPolygons(data = i_to_p_2017,
+      addPolygons(data = i_to_p_2016,
                   popup = ~ str_extract(NAME, "^([^,]*)"),
                   stroke = FALSE,
                   smoothFactor = 0,
                   fillOpacity = 0.4,
-                  color = ~ pal_2017(estimate))%>%
+                  color = ~ pal_2016(estimate))%>%
+      setMaxBounds(-122.75, 45.45, -122.5, 45.6)})
+  
+  observeEvent(input$"2017", {
+    v$data <- leafletProxy('map')%>%
       addGlPoints(data = finalfull2017[finalfull2017$CALL_GROUP == 'DISORDER',], group = "Disorder",  fillColor = 'lightblue',fillOpacity = 1, radius = 6, popup = "Disorder")%>%
       addGlPoints(data = finalfull2017[finalfull2017$CALL_GROUP == 'NON CRIMINAL/ADMIN',],  fillColor = 'salmon',fillOpacity = 1, radius = 6, popup = 'Non Criminal/Admin', group = 'Non Criminal/Admin')%>%
       addGlPoints(data = finalfull2017[finalfull2017$CALL_GROUP == 'TRAFFIC',], fillColor = 'lightpink', popup = 'Traffic', group = 'Traffic', fillOpacity = 5, radius = 6)%>%
@@ -305,6 +300,12 @@ server<- function(input, output, session) {
                 title = "Income to Poverty Ratio",
                 labFormat = labelFormat(prefix = "$"),
                 opacity = 1)%>%
+      addPolygons(data = i_to_p_2017,
+                  popup = ~ str_extract(NAME, "^([^,]*)"),
+                  stroke = FALSE,
+                  smoothFactor = 0,
+                  fillOpacity = 0.4,
+                  color = ~ pal_2017(estimate))%>%
       setMaxBounds(-122.75, 45.45, -122.5, 45.6)})}
      
   
