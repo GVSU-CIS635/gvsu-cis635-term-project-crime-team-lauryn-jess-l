@@ -80,7 +80,7 @@ pal_2012 <- colorNumeric(palette = "Greys",
                          domain = estimate2012,
                          na.color = NA)
 
-pal_2013 <- colorNumeric(palette = "Blues",
+pal_2013 <- colorNumeric(palette = "Greys",
                          domain = estimate2013,
                          na.color = NA)
 pal_2014 <- colorNumeric(palette = "Greys",
