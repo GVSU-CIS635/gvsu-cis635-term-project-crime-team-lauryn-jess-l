@@ -21,7 +21,7 @@ The datasets can be found [here.](https://nij.ojp.gov/funding/real-time-crime-fo
 
 ### Shiny App
 
-The video of the shiny demo can be found [here.](https://github.com/GVSU-CIS635/gvsu-cis635-term-project-crime-team-lauryn-jess-l)
+The video of the shiny demo can be found [here.](https://github.com/GVSU-CIS635/gvsu-cis635-term-project-crime-team-lauryn-jess-l/blob/main/Geo_Data/Shiny%20Tutorial.mp4)
 
 ## Contributors
 
