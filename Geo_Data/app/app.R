@@ -15,6 +15,8 @@ library(simplevis)
 library(stars)
 library(mapview)
 library(leafgl)
+library(shinyBS)
+
 
 #Loading in Shape Files:
 janjuly2016 <- read_sf("Geo_Data/2016/NIJ2016_JAN01_JUL31.shp")
@@ -97,7 +99,7 @@ pal_2017 <- colorNumeric(palette = "Greys",
                          domain = estimate2017,
                          na.color = NA)
 
-ui<- fluidPage(
+ui<- shinyUI(fluidPage(
   shinyjs::useShinyjs(),
   navbarPage(
     theme = shinytheme("superhero"),
@@ -117,9 +119,19 @@ ui<- fluidPage(
                leafletOutput(height = "700px", "map")
              ),
              textOutput("coords")),
-    tabPanel("About", "This panel is intentionally left blank"),
-    tabPanel("Contact Us",  "This panel is intentionally left blank")
-  ))
+    tabPanel("About Us", 
+             h1(paste0("Contributors:")),
+             h2("Lauryn Davis"),
+             p("Lauryn is an undergraduate student pursuing a Bachelor's degree in Applied Mathematics, minor in Applied Statistics, and a Master's degree in Data Science and Analytics. In her free time, she enjoys working on her Kindschi Research Fellowship that is centered around developing an interactive historical redlining website application within Shiny for R studio."),
+             h2("L Dettling"),
+             p("L works full-time in Technology Acquisitions at Grand Valley State University, and is dual-enrolled in the Master's program for Applied Computer Science. Her research focuses on applications of the Voronoi Diagram, and other computational geometry topics. In her free time, she enjoys playing Animal Crossings, scuba-diving, and playing D&D."),
+             h2("Jessica Malinowski"),
+             p("Jess is a graduate student pursuing a Master's in Applied Computer Science. She does this while working as a software developer parttime. In her free time - *she does not have any*, she enjoys hiking with her dog.")),
+            
+    tabPanel("Contact Us",  
+             h2("Who to Contact"),
+             p("If any questions arise pertaining to the geospatial analysis or techniques used, please reach out to Lauryn Davis, at davisl5@mail.gvsu.edu."))
+  )))
 
 library(shinyjs)
 
@@ -310,7 +322,5 @@ server<- function(input, output, session) {
      
   
 
-    
-
-
 shinyApp(ui, server)
+
