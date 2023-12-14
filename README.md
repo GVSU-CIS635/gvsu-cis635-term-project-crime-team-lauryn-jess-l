@@ -27,7 +27,7 @@ The video of the shiny demo can be found [here.](https://github.com/GVSU-CIS635/
 
 ### Final Report
 
-The final report can be found [here.](https://github.com/GVSU-CIS635/gvsu-cis635-term-project-crime-team-lauryn-jess-l)
+The final report can be found [here.](https://github.com/GVSU-CIS635/gvsu-cis635-term-project-crime-team-lauryn-jess-l/blob/main/Final%20Project%20Report.pdf)
 
 ## Contributors
 
