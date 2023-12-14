@@ -9,6 +9,8 @@
 - Windows OS or Mac OS
 - [R v4.2.2](https://cran.r-project.org/bin/windows/base/old/4.2.2/)
 - [RStudio "Mountain Hydrangea"](https://posit.co/download/rstudio-desktop/)
+- [Python 3.11](https://www.python.org/downloads/release/python-3117/)
+- [Git LFS is required to clone this repo](https://git-lfs.com/)
 
 ## Overview
 
@@ -22,6 +24,10 @@ The datasets can be found [here.](https://nij.ojp.gov/funding/real-time-crime-fo
 ### Shiny App
 
 The video of the shiny demo can be found [here.](https://github.com/GVSU-CIS635/gvsu-cis635-term-project-crime-team-lauryn-jess-l/blob/main/Geo_Data/Shiny%20Tutorial.mp4)
+
+### Final Report
+
+The final report can be found [here.](https://github.com/GVSU-CIS635/gvsu-cis635-term-project-crime-team-lauryn-jess-l)
 
 ## Contributors
 
