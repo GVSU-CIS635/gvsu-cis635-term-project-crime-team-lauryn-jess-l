@@ -15,6 +15,7 @@ library(simplevis)
 library(stars)
 library(mapview)
 library(leafgl)
+library(shinyBS)
 
 
 #Loading in Shape Files:
@@ -98,7 +99,7 @@ pal_2017 <- colorNumeric(palette = "Greys",
                          domain = estimate2017,
                          na.color = NA)
 
-ui<- fluidPage(
+ui<- shinyUI(fluidPage(
   shinyjs::useShinyjs(),
   navbarPage(
     theme = shinytheme("superhero"),
@@ -125,13 +126,12 @@ ui<- fluidPage(
              h2("L Dettling"),
              p("L works full-time in Technology Acquisitions at Grand Valley State University, and is dual-enrolled in the Master's program for Applied Computer Science. Her research focuses on applications of the Voronoi Diagram, and other computational geometry topics. In her free time, she enjoys playing Animal Crossings, scuba-diving, and playing D&D."),
              h2("Jessica Malinowski"),
-             p("Jess is a graduate student pursuing a Master's in Applied Computer Science. She does this while working as a software developer parttime. In her free time - *she does not have any*, she enjoys hiking with her dog."),
-             img(src = "lauryn.png", height = 300, width = 150)),
+             p("Jess is a graduate student pursuing a Master's in Applied Computer Science. She does this while working as a software developer parttime. In her free time - *she does not have any*, she enjoys hiking with her dog.")),
             
     tabPanel("Contact Us",  
              h2("Who to Contact"),
              p("If any questions arise pertaining to the geospatial analysis or techniques used, please reach out to Lauryn Davis, at davisl5@mail.gvsu.edu."))
-  ))
+  )))
 
 library(shinyjs)
 
@@ -321,9 +321,6 @@ server<- function(input, output, session) {
       setMaxBounds(-122.75, 45.45, -122.5, 45.6)})}
      
   
-
-    
-
 
 shinyApp(ui, server)
 
